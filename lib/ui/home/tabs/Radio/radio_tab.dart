@@ -31,7 +31,7 @@ class RadioTab extends StatelessWidget {
           ],
         ),
 
-        body: TabBarView(children: [RadioWidget(), Reciterswidget()]),
+        body: TabBarView(children: [RadioWidget(), RecitersWidget()]),
       ),
     );
   }

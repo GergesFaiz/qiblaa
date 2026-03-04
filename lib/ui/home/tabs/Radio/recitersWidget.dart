@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:qiblaa/utils/AppAssets.dart';
 
-class Reciterswidget extends StatelessWidget {
-  Reciterswidget({super.key});
+class RecitersWidget extends StatelessWidget {
+  RecitersWidget({super.key});
 
   List<String> imagesList = [
     AppAssets.radio4,

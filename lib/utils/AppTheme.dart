@@ -1,20 +1,18 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:qiblaa/utils/AppColors.dart';
+import 'package:qiblaa/utils/AppTextStyle.dart';
 
-class Apptheme {
-
+class AppTheme {
   static ThemeData darkTheme = ThemeData(
 
-    // bottomNavigationBarTheme: BottomNavigationBarThemeData(
-    //     selectedItemColor: Colors.yellow,
-    //     unselectedItemColor: Colors.white,
-    //     showSelectedLabels: false,
-    //     showUnselectedLabels: false,
-    //     type: BottomNavigationBarType.fixed,
-    //     elevation: 0
-    // ),
-    // scaffoldBackgroundColor: Colors.transparent,
+      scaffoldBackgroundColor: AppColors.black,
+      appBarTheme: AppBarTheme(
+        iconTheme: IconThemeData(
+          color: AppColors.Gold
+        ),
+          titleTextStyle: AppTextStyle.bold20Gold,
+          centerTitle: true,
+          backgroundColor: AppColors.black)
 
   );
 }

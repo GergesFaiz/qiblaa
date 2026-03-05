@@ -11,7 +11,7 @@ import 'package:qiblaa/utils/AppColors.dart';
 class HomeScreen extends StatefulWidget {
   static const String routeName = "HomeScreen";
 
-  HomeScreen({super.key});
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -37,6 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+
     return Stack(
       children: [
         Image.asset(

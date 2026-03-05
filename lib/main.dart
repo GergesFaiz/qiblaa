@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:qiblaa/OnBoardingScreen.dart';
+import 'package:qiblaa/ui/home/tabs/Ahadeth/hadethDetailsScreen.dart';
+import 'package:qiblaa/ui/home/tabs/Quran/detailsScreen.dart';
 import 'package:qiblaa/utils/AppTheme.dart';
 
 import 'ui/home/HomeScreen.dart';
@@ -13,16 +15,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
-      theme: Apptheme.darkTheme,
+      theme: AppTheme.darkTheme,
       themeMode: ThemeMode.dark,
-      darkTheme: Apptheme.darkTheme,
+      darkTheme: AppTheme.darkTheme,
 
       debugShowCheckedModeBanner: false,
       initialRoute: OnBoardingScreen.routeName,
       routes: {
         HomeScreen.routeName: (context) => HomeScreen(),
         OnBoardingScreen.routeName: (context) => OnBoardingScreen(),
+        Detailsscreen.routeName: (context) => Detailsscreen(),
+        HadethDetailsScreen.routeName: (context) => HadethDetailsScreen(),
+
       },
     );
   }

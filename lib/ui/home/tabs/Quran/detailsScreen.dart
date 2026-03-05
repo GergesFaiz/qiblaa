@@ -95,7 +95,6 @@ import 'package:qiblaa/ui/home/tabs/Quran/SuraContent.dart';
 import 'package:qiblaa/ui/home/tabs/Quran/SuraContent1.dart';
 import 'package:qiblaa/ui/home/tabs/Quran/sourses/SuraResource.dart';
 import 'package:qiblaa/utils/AppAssets.dart';
-import 'package:qiblaa/utils/AppColors.dart';
 import 'package:qiblaa/utils/AppTextStyle.dart';
 import 'package:flutter_islamic_icons/flutter_islamic_icons.dart';
 

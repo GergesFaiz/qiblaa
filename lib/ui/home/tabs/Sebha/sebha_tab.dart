@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:qiblaa/utils/AppColors.dart';
 import 'package:qiblaa/utils/AppTextStyle.dart';
 
 

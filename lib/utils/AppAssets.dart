@@ -22,6 +22,10 @@ class AppAssets {
   static String imgLeftCorner="assets/images/img_left_corner.png";
   static String imgBottomDecoration="assets/images/img_bottom_decoration.png";
 
+  static String imgRightCorner1="assets/images/right_corner1.png";
+  static String imgLeftCorner1="assets/images/left_corner1.png";
+  static String imgBottomDecoration1="assets/images/Mosque1-02 2.png";
+
 
   static String BarImage="assets/images/logo/BarImage.png";
   static String splashIc="assets/images/logo/ic_splash.png";
@@ -41,5 +45,6 @@ class AppAssets {
   static String sebha_bg= "assets/images/backgroundImages/sebha_bg.png";
   static String radio_bg= "assets/images/backgroundImages/radio_bg.png";
   static String more_bg= "assets/images/backgroundImages/more_bg.png";
+  static String hadithCardBackGround= "assets/images/backgroundImages/HadithCardBackGround 1.png";
 
 }

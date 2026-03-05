@@ -33,7 +33,7 @@ class _SebhaTabState extends State<SebhaTab> {
             alignment: Alignment.center,
             children: [
               Container(
-                  padding: EdgeInsets.only(bottom: 455, left: 10),
+                  padding: EdgeInsets.only(bottom: 500, left: 10),
                   child: Image.asset("assets/images/1.1.png",width: width*0.36,height: height*0.10,)),
               AnimatedRotation(
                 turns: turns,

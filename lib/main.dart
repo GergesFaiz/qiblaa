@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qiblaa/OnBoardingScreen.dart';
+import 'package:qiblaa/ui/home/tabs/Ahadeth/hadethDetailsScreen.dart';
 import 'package:qiblaa/ui/home/tabs/Quran/detailsScreen.dart';
 import 'package:qiblaa/utils/AppTheme.dart';
 
@@ -26,6 +27,8 @@ class MyApp extends StatelessWidget {
         HomeScreen.routeName: (context) => HomeScreen(),
         OnBoardingScreen.routeName: (context) => OnBoardingScreen(),
         Detailsscreen.routeName: (context) => Detailsscreen(),
+        HadethDetailsScreen.routeName: (context) => HadethDetailsScreen(),
+
       },
     );
   }

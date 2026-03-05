@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:qiblaa/ui/home/tabs/Ahadeth/hadeth.dart';
 import 'package:qiblaa/ui/home/tabs/Ahadeth/hadethArgs.dart';

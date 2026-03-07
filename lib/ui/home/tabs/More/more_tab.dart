@@ -38,7 +38,7 @@ class MoreTab extends StatelessWidget {
                     childAspectRatio: 2 / 3,
                     crossAxisCount: 2),
                 itemBuilder: (context, index) {
-                  return AzkarcardWidget(index: index,);
+                  return AzkarCardWidget(index: index,);
                 },)
 
 

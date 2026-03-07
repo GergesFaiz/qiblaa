@@ -3,10 +3,10 @@ import 'package:qiblaa/utils/AppAssets.dart';
 import 'package:qiblaa/utils/AppColors.dart';
 import 'package:qiblaa/utils/AppTextStyle.dart';
 
-class Azkarcardwidget extends StatelessWidget {
+class AzkarcardWidget extends StatelessWidget {
   int index;
 
-  Azkarcardwidget({super.key, required this.index});
+  AzkarcardWidget({super.key, required this.index});
 
   @override
   Widget build(BuildContext context) {

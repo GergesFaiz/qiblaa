@@ -1,4 +1,8 @@
 # qiblaa
+SplashScreen
+
+https://github.com/user-attachments/assets/e8dc1e01-cfa2-4963-ac37-c98248fe0678
+
 onboardingScreen
 
 https://github.com/user-attachments/assets/60c63d7f-296a-4746-93c1-e5d5d9f6408f

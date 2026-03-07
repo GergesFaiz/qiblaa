@@ -26,6 +26,24 @@ class AppAssets {
   static String imgLeftCorner1="assets/images/left_corner1.png";
   static String imgBottomDecoration1="assets/images/Mosque1-02 2.png";
 
+  static String imgTime = "assets/images/Group 38.png";
+
+  static String imgAzkar0 = "assets/images/azkar/Illustration-0.png";
+  static String imgAzkar1 = "assets/images/azkar/Illustration-1.png";
+  static String imgAzkar2 = "assets/images/azkar/Illustration-2.png";
+  static String imgAzkar3 = "assets/images/azkar/Illustration-3.png";
+  static String imgAzkar4 = "assets/images/azkar/Illustration-4.png";
+  static String imgAzkar5 = "assets/images/azkar/Illustration-5.png";
+  static String imgAzkar6 = "assets/images/azkar/Illustration-6.png";
+  static String imgAzkar7 = "assets/images/azkar/Illustration-7.png";
+  static String imgAzkar8 = "assets/images/azkar/Illustration-8.png";
+  static String imgAzkar9 = "assets/images/azkar/Illustration-9.png";
+  static String imgAzkar10 = "assets/images/azkar/Illustration-10.png";
+  static String imgAzkar11 = "assets/images/azkar/Illustration-11.png";
+  static String imgAzkar12 = "assets/images/azkar/Illustration-12.png";
+  static String imgAzkar13 = "assets/images/azkar/Illustration-13.png";
+  static String imgAzkar14 = "assets/images/azkar/Illustration-14.png";
+  static String imgAzkar15 = "assets/images/azkar/Illustration-15.png";
 
   static String BarImage="assets/images/logo/BarImage.png";
   static String splashIc="assets/images/logo/ic_splash.png";

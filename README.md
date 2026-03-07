@@ -1,4 +1,5 @@
 # qiblaa
+<video src="./your-video-name.mp4" controls="controls" width="100%"></video>
 
 A new Flutter project.
 

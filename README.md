@@ -1,17 +1,31 @@
 # qiblaa
 
-A new Flutter project.
+SplashScreen
 
-## Getting Started
+https://github.com/user-attachments/assets/a2f13ddd-42d3-4e1c-99a5-f15f2dde559f
 
-This project is a starting point for a Flutter application.
+onBoardingScreen
 
-A few resources to get you started if this is your first Flutter project:
+https://github.com/user-attachments/assets/07dc48c1-9127-42f8-ae76-889a5279a240
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+QuranScreen
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+https://github.com/user-attachments/assets/5aae6eff-f725-4ab1-a874-cf072823bd78
+
+AhadethScreen
+
+https://github.com/user-attachments/assets/e341abde-3e83-4cc7-836c-3f48e6a91b30
+
+SebhaScreen
+
+https://github.com/user-attachments/assets/2928ecc6-200d-49be-b922-6557db1bf294
+
+RadioScreen
+
+https://github.com/user-attachments/assets/47e1aedd-d03a-436b-a0a7-2220015f5212
+
+AzkarScreen
+
+https://github.com/user-attachments/assets/913cb3fc-1ade-435b-845f-2b520866631c
+
+

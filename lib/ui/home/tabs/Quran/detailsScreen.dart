@@ -91,12 +91,12 @@
 // }
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_islamic_icons/flutter_islamic_icons.dart';
 import 'package:qiblaa/ui/home/tabs/Quran/SuraContent.dart';
 import 'package:qiblaa/ui/home/tabs/Quran/SuraContent1.dart';
 import 'package:qiblaa/ui/home/tabs/Quran/sourses/SuraResource.dart';
 import 'package:qiblaa/utils/AppAssets.dart';
 import 'package:qiblaa/utils/AppTextStyle.dart';
-import 'package:flutter_islamic_icons/flutter_islamic_icons.dart';
 
 class Detailsscreen extends StatefulWidget {
   static const String routeName = "Detailsscreen";
@@ -157,12 +157,15 @@ class _DetailsscreenState extends State<Detailsscreen> {
 
           Expanded(
             child: showListView
-                ? ListView.separated(
-              itemBuilder: (context, i) {
-                return Suracontent(Suraindex: i, SuraVerses: versesList);
-              },
-              separatorBuilder: (context, i) => SizedBox(height: 10),
-              itemCount: versesList.length,
+                ? Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ListView.separated(
+                itemBuilder: (context, i) {
+                  return Suracontent(Suraindex: i, SuraVerses: versesList);
+                },
+                separatorBuilder: (context, i) => SizedBox(height: 10),
+                itemCount: versesList.length,
+              ),
             )
                 : SingleChildScrollView(child: Suracontent1(Verses: versesText)),
           ),

@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:qiblaa/OnBoardingScreen.dart';
 import 'package:qiblaa/ui/home/tabs/Ahadeth/hadethDetailsScreen.dart';
+import 'package:qiblaa/ui/home/tabs/Quran/MostRecentlyProvider.dart';
 import 'package:qiblaa/ui/home/tabs/Quran/detailsScreen.dart';
 import 'package:qiblaa/utils/AppTheme.dart';
 
 import 'ui/home/HomeScreen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(ChangeNotifierProvider(
+      create: (context) => MostRecentlyProvider(), child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -15,7 +18,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
       theme: AppTheme.darkTheme,
       themeMode: ThemeMode.dark,
@@ -28,7 +30,6 @@ class MyApp extends StatelessWidget {
         OnBoardingScreen.routeName: (context) => OnBoardingScreen(),
         Detailsscreen.routeName: (context) => Detailsscreen(),
         HadethDetailsScreen.routeName: (context) => HadethDetailsScreen(),
-
       },
     );
   }

@@ -92,6 +92,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_islamic_icons/flutter_islamic_icons.dart';
+import 'package:provider/provider.dart';
+import 'package:qiblaa/ui/home/tabs/Quran/MostRecentlyProvider.dart';
 import 'package:qiblaa/ui/home/tabs/Quran/SuraContent.dart';
 import 'package:qiblaa/ui/home/tabs/Quran/SuraContent1.dart';
 import 'package:qiblaa/ui/home/tabs/Quran/sourses/SuraResource.dart';
@@ -109,9 +111,11 @@ class _DetailsscreenState extends State<Detailsscreen> {
   List<String> versesList = [];
   String versesText = '';
   bool showListView = true;
+  late MostRecentlyProvider mostRecentlyProvider;
 
   @override
   Widget build(BuildContext context) {
+    mostRecentlyProvider = Provider.of<MostRecentlyProvider>(context);
     int index = ModalRoute.of(context)!.settings.arguments as int;
     if (versesList.isEmpty && versesText.isEmpty) {
       loadSuraFile(index);
@@ -126,8 +130,7 @@ class _DetailsscreenState extends State<Detailsscreen> {
                 showListView = true;
               });
             },
-            icon:Icon(FlutterIslamicIcons.quran,size: 40,)
-
+            icon: Icon(FlutterIslamicIcons.quran, size: 40),
           ),
           IconButton(
             onPressed: () {
@@ -135,10 +138,13 @@ class _DetailsscreenState extends State<Detailsscreen> {
                 showListView = false;
               });
             },
-            icon: Icon(FlutterIslamicIcons.quran2,size: 40,)
+            icon: Icon(FlutterIslamicIcons.quran2, size: 40),
           ),
         ],
-        title: Text(SuraResource.englishSuraList[index],style: AppTextStyle.bold20Gold,),
+        title: Text(
+          SuraResource.englishSuraList[index],
+          style: AppTextStyle.bold20Gold,
+        ),
       ),
       body: Column(
         children: [
@@ -148,8 +154,10 @@ class _DetailsscreenState extends State<Detailsscreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Image.asset(AppAssets.imgLeftCorner),
-                Text(SuraResource.arabicSuraList[index],
-                    style: AppTextStyle.bold24Gold),
+                Text(
+                  SuraResource.arabicSuraList[index],
+                  style: AppTextStyle.bold24Gold,
+                ),
                 Image.asset(AppAssets.imgRightCorner),
               ],
             ),
@@ -161,13 +169,18 @@ class _DetailsscreenState extends State<Detailsscreen> {
               padding: const EdgeInsets.all(8.0),
               child: ListView.separated(
                 itemBuilder: (context, i) {
-                  return Suracontent(Suraindex: i, SuraVerses: versesList);
+                  return Suracontent(
+                    Suraindex: i,
+                    SuraVerses: versesList,
+                  );
                 },
                 separatorBuilder: (context, i) => SizedBox(height: 10),
                 itemCount: versesList.length,
               ),
             )
-                : SingleChildScrollView(child: Suracontent1(Verses: versesText)),
+                : SingleChildScrollView(
+              child: Suracontent1(Verses: versesText),
+            ),
           ),
 
           Image.asset(AppAssets.imgBottomDecoration),
@@ -177,8 +190,9 @@ class _DetailsscreenState extends State<Detailsscreen> {
   }
 
   void loadSuraFile(int index) async {
-    String content =
-    await rootBundle.loadString('assets/files/suras/${index + 1}.txt');
+    String content = await rootBundle.loadString(
+      'assets/files/suras/${index + 1}.txt',
+    );
 
     versesList = content.split('\n');
 
@@ -189,5 +203,12 @@ class _DetailsscreenState extends State<Detailsscreen> {
     versesText = lines.join('');
 
     setState(() {});
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    mostRecentlyProvider.getMostRecentlyList();
   }
 }

@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:qiblaa/ui/home/tabs/Quran/MostRecentlyProvider.dart';
+import 'package:qiblaa/ui/home/tabs/Quran/MostRecentlyWidget.dart';
+import 'package:qiblaa/ui/home/tabs/Quran/Shared_prefs_utils.dart';
 import 'package:qiblaa/ui/home/tabs/Quran/SuraItemWidget.dart';
 import 'package:qiblaa/ui/home/tabs/Quran/detailsScreen.dart';
 import 'package:qiblaa/ui/home/tabs/Quran/sourses/SuraResource.dart';
@@ -15,6 +19,17 @@ class QuranTab extends StatefulWidget {
 
 class _QuranTabState extends State<QuranTab> {
   List<int> filterList = List.generate(114, (index) => index);
+  late MostRecentlyProvider mostRecentlyProvider;
+
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      mostRecentlyProvider.getMostRecentlyList();
+    },);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +41,7 @@ class _QuranTabState extends State<QuranTab> {
         .of(context)
         .size
         .height;
+    mostRecentlyProvider = Provider.of<MostRecentlyProvider>(context);
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: width * 0.04),
       child: Column(
@@ -52,53 +68,42 @@ class _QuranTabState extends State<QuranTab> {
               hint: Text("Sura Name", style: AppTextStyle.bold16White),
             ),
           ),
-          Padding(
-            padding: EdgeInsets.symmetric(vertical: height * 0.02),
-            child: Text("Most Recently ", style: AppTextStyle.bold16White),
-          ),
-          SizedBox(
-            height: height * 0.17,
-            child: ListView.separated(
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) {
-                return Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: AppColors.Gold,
+          Visibility(
+            visible: mostRecentlyProvider.mostRecentlyList.isNotEmpty,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: height * 0.02),
+                  child: Text(
+                    "Most Recently ",
+                    style: AppTextStyle.bold16White,
                   ),
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: width * 0.04),
-                    child: Row(
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          spacing: 8,
-                          children: [
-                            Text(
-                              SuraResource.englishSuraList[index],
-                              style: AppTextStyle.bold24Black,
-                            ),
-                            Text(
-                              SuraResource.arabicSuraList[index],
-                              style: AppTextStyle.bold24Black,
-                            ),
-                            Text(
-                              "${SuraResource.suraNumberList[index]} Verses  ",
-                              style: AppTextStyle.bold14Black,
-                            ),
-                          ],
-                        ),
-                        Image.asset(AppAssets.imgMostRecent, fit: BoxFit.fill),
-                      ],
-                    ),
+                ),
+                SizedBox(
+                  height: height * 0.17,
+                  child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return InkWell(
+                        onTap: () {
+                          Navigator.of(context).pushNamed(
+                            Detailsscreen.routeName,
+                            arguments: mostRecentlyProvider
+                                .mostRecentlyList[index],
+                          );
+                        },
+                        child: Mostrecentlywidget(index: index),
+                      );
+                    },
+                    separatorBuilder: (context, index) => SizedBox(width: 10),
+                    itemCount: mostRecentlyProvider.mostRecentlyList.length,
                   ),
-                );
-              },
-              separatorBuilder: (context, index) => SizedBox(width: 10),
-              itemCount: 10,
+                ),
+              ],
             ),
           ),
+
           Padding(
             padding: EdgeInsets.symmetric(vertical: height * 0.02),
             child: Text("Sura's List", style: AppTextStyle.bold16White),
@@ -115,12 +120,15 @@ class _QuranTabState extends State<QuranTab> {
               itemBuilder: (context, index) {
                 return InkWell(
                   onTap: () {
+                    saveSuraIndex(filterList[index]);
                     Navigator.of(context).pushNamed(
                       Detailsscreen.routeName,
                       arguments: filterList[index],
                     );
+
+                    // readMostRecently();
                   },
-                  child: SuraItemWidget(index: filterList[index],),
+                  child: SuraItemWidget(index: filterList[index]),
                 );
               },
               separatorBuilder: (context, index) =>

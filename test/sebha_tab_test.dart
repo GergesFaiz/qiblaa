@@ -4,7 +4,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:qiblaa/main.dart';
+import 'package:qiblaa/ui/home/tabs/Sebha/sebha_tab.dart';
 
 /// A minimal valid 1x1 transparent PNG used to satisfy Image.asset calls
 /// inside widget tests without needing the real asset files.
@@ -38,18 +38,50 @@ class _FakeAssetBundle extends CachingAssetBundle {
   }
 }
 
+Widget _wrap(Widget child) {
+  return DefaultAssetBundle(
+    bundle: _FakeAssetBundle(),
+    child: MaterialApp(home: Scaffold(body: child)),
+  );
+}
+
 void main() {
-  testWidgets('app renders the onboarding screen without exceptions',
+  testWidgets('sebha counter starts at 0 and increments on tap',
       (WidgetTester tester) async {
-    await tester.pumpWidget(
-      DefaultAssetBundle(
-        bundle: _FakeAssetBundle(),
-        child: const MyApp(),
-      ),
-    );
+    await tester.binding.setSurfaceSize(const Size(800, 1600));
+    addTearDown(() => tester.binding.setSurfaceSize(null));
+
+    await tester.pumpWidget(_wrap(SebhaTab()));
+
+    expect(find.text('0'), findsOneWidget);
+
+    await tester.tap(find.byType(AnimatedRotation));
     await tester.pump();
 
-    expect(find.text('Welcome To Islmi App'), findsOneWidget);
-    expect(find.byType(SafeArea), findsWidgets);
+    expect(find.text('0'), findsNothing);
+    expect(find.text('1'), findsOneWidget);
+  });
+
+  testWidgets('sebha counter resets to 0 after a full cycle of 32 taps',
+      (WidgetTester tester) async {
+    await tester.binding.setSurfaceSize(const Size(800, 1600));
+    addTearDown(() => tester.binding.setSurfaceSize(null));
+
+    await tester.pumpWidget(_wrap(SebhaTab()));
+
+    // The counter counts 0..31 and resets to 0 after 32 taps
+    // (and moves to the next dhikr).
+    for (var i = 0; i < 32; i++) {
+      await tester.tap(find.byType(AnimatedRotation));
+      await tester.pump();
+    }
+
+    expect(find.text('0'), findsOneWidget);
+
+    await tester.tap(find.byType(AnimatedRotation));
+    await tester.pump();
+
+    expect(find.text('0'), findsNothing);
+    expect(find.text('1'), findsOneWidget);
   });
 }
